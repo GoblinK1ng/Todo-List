@@ -7,6 +7,8 @@ const tempTodo = createTodo("Bingus","this thing has a desc", "J 2", "True")
 const projectTemp = Project.createProject("Project", "for reasons");
 const projectTemp2 = Project.createProject("Project2", "for reasons");
 projectTemp.AddItemToProject(tempTodo);
+projectTemp.AddItemToProject(tempTodo);
+projectTemp.AddItemToProject(tempTodo);
 
 
 console.log(Project.projects);
@@ -33,4 +35,11 @@ function displaySidebar(){
     }
 }
 
-displaySidebar();
+
+const createProjButton = document.getElementById("createProject");
+
+createProjButton.addEventListener("click", () =>{
+    const main = document.getElementById("main-content");
+    const form = document.createElement("form");
+    main.appendChild(form);
+});
