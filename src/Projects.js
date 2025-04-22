@@ -10,3 +10,7 @@ class Project {
 function createProject(title, description){
     return new Project(title, description);
 }
+
+function AddItemToProject(project, todo){
+    project.todos.push(todo);
+}
