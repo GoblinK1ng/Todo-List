@@ -50,3 +50,20 @@ footer{
   margin-left: 50px;
 }
 
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  
+  padding: 12px;
+  border: 2px solid black;
+  background-color: aliceblue;
+}
+
+input, textarea{
+  margin-bottom: 12px;
+}
+
+.Description.Input{
+  height: 100px;
+}
