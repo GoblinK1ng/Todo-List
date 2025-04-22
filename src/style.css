@@ -3,6 +3,11 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
+:root{
+  --backgroundColor: rgb(230, 230, 230);
+  --backgroundColor-lighter: rgb(242, 242, 242);
+}
+
 body{
   height: 100vh;
   display: grid;
@@ -23,9 +28,11 @@ header{
 .main-content{
   grid-column: 2 / 3;
   grid-row: 2 / 3;
+  background-color: var(--backgroundColor);
 }
 
 footer{
   grid-column: 1/3;
   grid-row: 3 / 4;
+  background-color: var(--backgroundColor-lighter);
 }
