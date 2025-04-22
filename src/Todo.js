@@ -5,9 +5,22 @@ class Todo {
         this.dueDate = dueDate;
         this.priority = priority;
     }
+
+    set title(value){
+        this._title = value;
+    }
+    set description(value){
+        this._description = value;
+    }
+    set dueDate(value){
+        this._dueDate = value;
+    }
+    set priority(value){
+        this._priority = value;
+    }
     
 }
 
-function createTodo(title, description, dueDate, priority){
+export function createTodo(title, description, dueDate, priority){
     return new Todo(title, description, dueDate, priority);
 }

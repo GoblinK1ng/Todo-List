@@ -7,10 +7,19 @@ class Project {
     
 }
 
-function createProject(title, description){
+export function createProject(title, description){
     return new Project(title, description);
 }
 
-function AddItemToProject(project, todo){
+export function AddItemToProject(project, todo){
+    project.todos.push(todo);
+}
+
+export function RemoveItemFromProject(project, todo){
+    for (let x in project.todos){
+        if (project.todos[x] === todo){
+            project.todos.splice(x, 1);
+        }
+    }
     project.todos.push(todo);
 }
