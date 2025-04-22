@@ -1,25 +1,32 @@
-class Project {
+export class Project {
+    static projects = [];
+
     constructor(title, description){
         this.title = title;
         this.description = description;
-        this.todos = []
+        this.todos = [];
+        Project.projects.push(this);
+    }
+
+    static createProject(title, description){
+        return new Project(title, description);
+    }
+
+    AddItemToProject(todo){
+        this.todos.push(todo);
+    }
+
+    RemoveItemFromProject(todo){
+        for (let x in this.todos){
+            if (this.todos[x] === todo){
+                console.log(x);
+                this.todos.splice(x, 1);
+            }
+        }
+        
     }
     
 }
 
-export function createProject(title, description){
-    return new Project(title, description);
-}
 
-export function AddItemToProject(project, todo){
-    project.todos.push(todo);
-}
 
-export function RemoveItemFromProject(project, todo){
-    for (let x in project.todos){
-        if (project.todos[x] === todo){
-            project.todos.splice(x, 1);
-        }
-    }
-    project.todos.push(todo);
-}
