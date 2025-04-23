@@ -44,6 +44,17 @@ createProjButton.addEventListener("click", () =>{
     const main = document.getElementById("main-content");
     const form = createProjectForm()
     main.appendChild(form[0]);
+
+    
+
+    form[1].addEventListener("click", (event) =>{
+        const inputs = document.getElementsByClassName("Input");
+        
+        Project.createProject(inputs[0].value, inputs[1].value);
+
+        main.innerHTML = "";
+        console.log(Project.projects);
+    });
 });
 
 createTodoButton.addEventListener("click", () =>{

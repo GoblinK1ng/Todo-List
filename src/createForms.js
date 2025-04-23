@@ -5,13 +5,17 @@ export function createProjectForm(){
     
     
     const titleInput = document.createElement("input");
-    titleInput.classList = "Title Input"
+    titleInput.classList = "Name Input"
     const descriptionInput = document.createElement("textarea");
     descriptionInput.classList = "Description Input";
     const submitButton = document.createElement("button");
     submitButton.type = "submit";
     submitButton.id = "submit";
     submitButton.textContent = "Submit";
+
+    submitButton.addEventListener("click", (event) =>{
+        event.preventDefault();
+    });
 
     const titleLabel = document.createElement("label");
     titleLabel.textContent = "Name";
@@ -55,4 +59,8 @@ export function createTodoForm(){
     form[0].insertBefore(dateInput, form[1]);
     form[0].insertBefore(priorityInput, form[1]);
     return (form[0]);
+}
+
+export function addToProjectList(){
+
 }
