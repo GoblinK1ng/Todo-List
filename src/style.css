@@ -13,6 +13,7 @@ body{
   display: grid;
   grid-template-columns: 250px 1fr;
   grid-template-rows: 100px 1fr 50px;
+  
 }
 
 header{
@@ -28,6 +29,7 @@ header{
 #sidebar{
   grid-row: 2 / 3;
   grid-column: 1 / 2;
+  padding: 12px;
 }
 
 #main-content{
@@ -60,10 +62,32 @@ form{
   background-color: aliceblue;
 }
 
-input, textarea{
+.Input, textarea{
   margin-bottom: 12px;
 }
 
 .Description.Input{
   height: 100px;
+}
+
+.project-bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.open-project{
+  border-style: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+}
+
+.open-project:hover{
+  color: rgb(43, 156, 255);
+}
+
+#projects-section{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }

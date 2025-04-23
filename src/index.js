@@ -2,6 +2,7 @@ import "./style.css";
 import { createTodo } from "./Todo";
 import { Project } from "./Projects";
 import { createProjectForm, createTodoForm } from "./createForms";
+import { displaySidebar } from "./sidebar";
 
 const tempTodo = createTodo("Bingus","this thing has a desc", "J 2", "True")
 
@@ -14,29 +15,7 @@ Project.projects[0].AddItemToProject(tempTodo);
 
 console.log(Project.projects);
 
-
-function displaySidebar(){
-    const sidebar = document.getElementById("sidebar");
-    sidebar.innerHTML = "";
-    for (let x in Project.projects){
-        
-
-        const projectBar = document.createElement("div");
-        projectBar.textContent = Project.projects[x].title;
-        
-
-        for (let y in Project.projects[x].todos){
-            const todo = document.createElement("div");
-            todo.classList = "todos";
-            todo.textContent = Project.projects[x].todos[y].title;
-            
-            projectBar.appendChild(todo);
-            
-        }
-        sidebar.appendChild(projectBar);
-    }
-}
-
+displaySidebar();
 
 const createProjButton = document.getElementById("createProject");
 const createTodoButton = document.getElementById("createTodo");

@@ -1,13 +1,16 @@
-export function createProjectForm(){
+export function createProjectForm(name = "", description = ""){
     const main = document.getElementById("main-content");
     main.innerHTML = "";
     const form = document.createElement("form");
-    
+    console.log(name);
     
     const titleInput = document.createElement("input");
     titleInput.classList = "Name Input"
+    titleInput.value = name;
+
     const descriptionInput = document.createElement("textarea");
     descriptionInput.classList = "Description Input";
+    descriptionInput.textContent = description;
     const submitButton = document.createElement("button");
     submitButton.type = "submit";
     submitButton.id = "submit";
