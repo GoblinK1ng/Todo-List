@@ -21,14 +21,18 @@ body{
   grid-row: 1 / 2;
 
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: space-between;
+  align-items: center;
   padding: 12px;
 
   box-shadow: 270px 20px 30px rgba(0, 0, 0, 0.288);
   
   z-index: 2;
   
+}
+#header > h1{
+  font-style: italic;
+  color: rgb(85, 85, 85);
 }
 
 #sidebar{
@@ -96,6 +100,9 @@ form{
   border-style: none;
   background-color: transparent;
   font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .open-project:hover, .todoOpen:hover{
@@ -120,6 +127,13 @@ form{
   grid-template-rows: 50px 1fr;
   gap: 10px;
   
+  
+}
+
+#projectUI > h2{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #todoButton{
@@ -141,7 +155,28 @@ ul{
 }
 
 .todo{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr ;
+  
+}
+
+#todoOpen{
+  justify-self: flex-start;
+  font-size: 1.2rem;
+}
+
+#todoDate{
+  justify-self: end;
+}
+
+#todoInfo{
+  grid-column: 1 / 3;
+  padding-left: 25px;
+
+  font-size: 0.8rem;
+  font-style: italic;
   display: flex;
-  justify-content: space-between;
-  align-items: end;
+  flex-direction: column;
+  gap: 6px;
 }

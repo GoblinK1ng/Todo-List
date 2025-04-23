@@ -4,13 +4,6 @@ import { Project } from "./Projects";
 import { createProjectForm, createTodoForm } from "./createForms";
 import { displaySidebar } from "./sidebar";
 
-const tempTodo = new Todo("Bingus","this thing has a desc", "J 2", "True")
-
-new Project("Project", "for reasons");
-new Project("Project2", "for reasons");
-Project.projects[0].AddItemToProject(tempTodo);
-Project.projects[0].AddItemToProject(tempTodo);
-Project.projects[0].AddItemToProject(tempTodo);
 
 
 console.log(Project.projects);

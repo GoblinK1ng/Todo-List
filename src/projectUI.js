@@ -19,14 +19,45 @@ export function showProjectUI(project){
         const todo = document.createElement("li");
         todo.classList = "todo"
         const todoOpen = document.createElement("button");
+        todoOpen.id = "todoOpen";
         const todoDate = document.createElement("p");
+        todoDate.id = "todoDate";
+        const todoInfo = document.createElement("div");
+        todoInfo.id = "todoInfo";
+
+        
+
+        todoOpen.addEventListener("click", () =>{
+            if (!project.todos[x].shown){
+                const todoDesc = document.createElement("p");
+                todoDesc.textContent = project.todos[x].description;
+                todoInfo.appendChild(todoDesc);
+
+                const todoPriority = document.createElement("p");
+                todoPriority.textContent = "Priority: "+project.todos[x].priority;
+                todoInfo.appendChild(todoPriority);
+
+                project.todos[x].shown = true;
+
+                
+                
+            }
+            else{
+                todoInfo.innerHTML = "";
+                project.todos[x].shown = false;
+            }
+        })
+        
         todoDate.textContent = project.todos[x].dueDate;
         todoOpen.classList = "todoOpen";
         todoOpen.textContent = project.todos[x].title;
         todo.appendChild(todoOpen);
         todo.appendChild(todoDate);
+        todo.appendChild(todoInfo);
         todoList.appendChild(todo);
     }
+
+
 
     todoButton.addEventListener("click", () =>{
         const form = createTodoForm();
