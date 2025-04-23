@@ -98,7 +98,13 @@ form{
   height: 400px;
   width: 300px;
 
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 175px 1fr;
+  grid-template-rows: 50px 1fr;
+  gap: 10px;
+  
+}
+
+#todoButton{
+  height: 25px;
 }

@@ -1,10 +1,10 @@
 import "./style.css";
-import { createTodo } from "./Todo";
+import { Todo } from "./Todo";
 import { Project } from "./Projects";
 import { createProjectForm, createTodoForm } from "./createForms";
 import { displaySidebar } from "./sidebar";
 
-const tempTodo = createTodo("Bingus","this thing has a desc", "J 2", "True")
+const tempTodo = new Todo("Bingus","this thing has a desc", "J 2", "True")
 
 new Project("Project", "for reasons");
 new Project("Project2", "for reasons");
@@ -18,7 +18,7 @@ console.log(Project.projects);
 displaySidebar();
 
 const createProjButton = document.getElementById("createProject");
-const createTodoButton = document.getElementById("createTodo");
+
 
 createProjButton.addEventListener("click", () =>{
     const main = document.getElementById("main-content");
@@ -39,7 +39,3 @@ createProjButton.addEventListener("click", () =>{
     });
 });
 
-createTodoButton.addEventListener("click", () =>{
-    const main = document.getElementById("main-content");
-    main.appendChild(createTodoForm());
-});

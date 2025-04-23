@@ -61,7 +61,7 @@ export function createTodoForm(){
     
     form[0].insertBefore(dateInput, form[1]);
     form[0].insertBefore(priorityInput, form[1]);
-    return (form[0]);
+    return [form[0], form[1]];
 }
 
 export function addToProjectList(){
