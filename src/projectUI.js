@@ -17,8 +17,14 @@ export function showProjectUI(project){
 
     for (let x in project.todos){
         const todo = document.createElement("li");
-
-        todo.textContent = project.todos[x].title;
+        todo.classList = "todo"
+        const todoOpen = document.createElement("button");
+        const todoDate = document.createElement("p");
+        todoDate.textContent = project.todos[x].dueDate;
+        todoOpen.classList = "todoOpen";
+        todoOpen.textContent = project.todos[x].title;
+        todo.appendChild(todoOpen);
+        todo.appendChild(todoDate);
         todoList.appendChild(todo);
     }
 
