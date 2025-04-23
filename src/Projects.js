@@ -8,11 +8,9 @@ export class Project {
         Project.projects.push(this);
     }
 
-    static createProject(title, description){
-        return new Project(title, description);
-    }
-
+    
     AddItemToProject(todo){
+        
         this.todos.push(todo);
     }
 

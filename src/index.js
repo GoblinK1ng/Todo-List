@@ -5,11 +5,11 @@ import { createProjectForm, createTodoForm } from "./createForms";
 
 const tempTodo = createTodo("Bingus","this thing has a desc", "J 2", "True")
 
-const projectTemp = Project.createProject("Project", "for reasons");
-const projectTemp2 = Project.createProject("Project2", "for reasons");
-projectTemp.AddItemToProject(tempTodo);
-projectTemp.AddItemToProject(tempTodo);
-projectTemp.AddItemToProject(tempTodo);
+new Project("Project", "for reasons");
+new Project("Project2", "for reasons");
+Project.projects[0].AddItemToProject(tempTodo);
+Project.projects[0].AddItemToProject(tempTodo);
+Project.projects[0].AddItemToProject(tempTodo);
 
 
 console.log(Project.projects);
@@ -17,6 +17,7 @@ console.log(Project.projects);
 
 function displaySidebar(){
     const sidebar = document.getElementById("sidebar");
+    sidebar.innerHTML = "";
     for (let x in Project.projects){
         
 
@@ -50,10 +51,12 @@ createProjButton.addEventListener("click", () =>{
     form[1].addEventListener("click", (event) =>{
         const inputs = document.getElementsByClassName("Input");
         
-        Project.createProject(inputs[0].value, inputs[1].value);
+        new Project(inputs[0].value, inputs[1].value);
 
         main.innerHTML = "";
         console.log(Project.projects);
+
+        displaySidebar();
     });
 });
 
