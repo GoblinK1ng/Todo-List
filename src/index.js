@@ -27,8 +27,9 @@ createProjButton.addEventListener("click", () =>{
 
     
 
-    form[1].addEventListener("click", (event) =>{
-        const inputs = document.getElementsByClassName("Input");
+    form[1].addEventListener("click", () =>{
+        if (form[0].checkValidity()){
+            const inputs = document.getElementsByClassName("Input");
         
         new Project(inputs[0].value, inputs[1].value);
 
@@ -36,6 +37,8 @@ createProjButton.addEventListener("click", () =>{
         console.log(Project.projects);
 
         displaySidebar();
+        }
+        
     });
 });
 

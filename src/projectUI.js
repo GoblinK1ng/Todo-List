@@ -29,9 +29,12 @@ export function showProjectUI(project){
         console.log(inputs);
         
         form[1].addEventListener("click", () =>{
+            if (form[0].checkValidity()){
+                project.todos.push(new Todo(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value));
+                showProjectUI(project);
+            }
             
-            project.todos.push(new Todo(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value));
-            showProjectUI(project);
+            
         });
         
     });

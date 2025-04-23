@@ -7,9 +7,12 @@ export function createProjectForm(name = "", description = ""){
     const titleInput = document.createElement("input");
     titleInput.classList = "Name Input"
     titleInput.value = name;
+    titleInput.required = true;
 
     const descriptionInput = document.createElement("textarea");
     descriptionInput.classList = "Description Input";
+    
+
     descriptionInput.textContent = description;
     const submitButton = document.createElement("button");
     submitButton.type = "submit";
@@ -18,6 +21,7 @@ export function createProjectForm(name = "", description = ""){
 
     submitButton.addEventListener("click", (event) =>{
         event.preventDefault();
+        
     });
 
     const titleLabel = document.createElement("label");
@@ -39,15 +43,18 @@ export function createTodoForm(){
     const dateInput = document.createElement("input");
     dateInput.classList = "Date Input";
     dateInput.type = "date";
+    dateInput.required = true;
 
     const priorityInput = document.createElement("input");
     priorityInput.classList = "Priority Input";
     priorityInput.setAttribute('list', 'priority');
     priorityInput.type = "text";
+    priorityInput.required = true;
 
     const priorityOptions = ["Low", "Medium", "High"];
     const priorityList = document.createElement("datalist");
     priorityList.id = "priority";
+    
     
 
     for (let x in priorityOptions){
