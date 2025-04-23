@@ -10,10 +10,11 @@ export function createProjectForm(){
     descriptionInput.classList = "Description Input";
     const submitButton = document.createElement("button");
     submitButton.type = "submit";
+    submitButton.id = "submit";
     submitButton.textContent = "Submit";
 
     const titleLabel = document.createElement("label");
-    titleLabel.textContent = "Project Name";
+    titleLabel.textContent = "Name";
     const descriptionLabel = document.createElement("label");
     descriptionLabel.textContent = "Description";
     
@@ -22,5 +23,36 @@ export function createProjectForm(){
     form.appendChild(descriptionLabel);
     form.appendChild(descriptionInput);
     form.appendChild(submitButton);
-    main.appendChild(form);
+    return [form, submitButton];
+}
+
+export function createTodoForm(){
+    const form = createProjectForm();
+
+    const dateInput = document.createElement("input");
+    dateInput.classList = "Date Input";
+    dateInput.type = "date";
+
+    const priorityInput = document.createElement("input");
+    priorityInput.classList = "Priority Input";
+    priorityInput.setAttribute('list', 'priority');
+    priorityInput.type = "text";
+
+    const priorityOptions = ["Low", "Medium", "High"];
+    const priorityList = document.createElement("datalist");
+    priorityList.id = "priority";
+    
+
+    for (let x in priorityOptions){
+        const option = document.createElement("option");
+        option.value = priorityOptions[x];
+        priorityList.appendChild(option);
+    }
+
+    priorityInput.appendChild(priorityList);
+
+    
+    form[0].insertBefore(dateInput, form[1]);
+    form[0].insertBefore(priorityInput, form[1]);
+    return (form[0]);
 }
