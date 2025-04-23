@@ -1,6 +1,7 @@
 import { Project } from "./Projects";
 import { createProjectForm } from "./createForms";
 import edit from "./imgs/edit.svg";
+import { showProjectUI } from "./projectUI";
 
 export function displaySidebar(){
     const sidebar = document.getElementById("projects-section");
@@ -17,6 +18,11 @@ export function displaySidebar(){
         projectEdit.setAttribute("type", "image");
         projectEdit.src = edit;
         projectName.textContent = Project.projects[x].title;
+
+        projectName.addEventListener("click", () =>{
+            showProjectUI(Project.projects[x]);
+        })
+
         projectEdit.addEventListener("click", ()=>{
             console.log(Project.projects[x].title);
             const main = document.getElementById("main-content");
