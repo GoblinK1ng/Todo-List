@@ -3,6 +3,8 @@ import { createProjectForm } from "./createForms";
 import edit from "./imgs/edit.svg";
 import { showProjectUI } from "./projectUI";
 
+const main = document.getElementById("main-content");
+
 export function displaySidebar(){
     const sidebar = document.getElementById("projects-section");
     sidebar.innerHTML = "";
@@ -24,8 +26,6 @@ export function displaySidebar(){
         })
 
         projectEdit.addEventListener("click", ()=>{
-            console.log(Project.projects[x].title);
-            const main = document.getElementById("main-content");
             main.appendChild(createProjectForm(Project.projects[x].title, Project.projects[x].description)[0]);
         });
         projectBar.appendChild(projectName);

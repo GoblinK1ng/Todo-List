@@ -1,37 +1,14 @@
 import "./style.css";
-import { Todo } from "./Todo";
-import { Project } from "./Projects";
-import { createProjectForm, createTodoForm } from "./createForms";
+//import { Todo } from "./Todo";
+//import { Project } from "./Projects";
+//import { createProjectForm, createTodoForm } from "./createForms";
 import { displaySidebar } from "./sidebar";
+import { projButton } from "./header";
 
 
-
-console.log(Project.projects);
 
 displaySidebar();
 
-const createProjButton = document.getElementById("createProject");
+projButton();
 
-
-createProjButton.addEventListener("click", () =>{
-    const main = document.getElementById("main-content");
-    const form = createProjectForm()
-    main.appendChild(form[0]);
-
-    
-
-    form[1].addEventListener("click", () =>{
-        if (form[0].checkValidity()){
-            const inputs = document.getElementsByClassName("Input");
-        
-        new Project(inputs[0].value, inputs[1].value);
-
-        main.innerHTML = "";
-        console.log(Project.projects);
-
-        displaySidebar();
-        }
-        
-    });
-});
 

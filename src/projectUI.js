@@ -12,9 +12,15 @@ export function showProjectUI(project){
     
     const title = document.createElement("h2");
     title.textContent = project.title;
+
     const todoButton = document.createElement("button");
     todoButton.textContent = "Create Todo";
     todoButton.id = "todoButton";
+    todoButton.addEventListener("click", () =>{
+        createTodo(project);
+    });
+
+    
     const todoList = document.createElement("ul");
 
     for (let x in project.todos){
@@ -35,23 +41,12 @@ export function showProjectUI(project){
 
         const todoInfo = document.createElement("div");
         todoInfo.id = "todoInfo";
-
-        
-
-        
         
         todo.appendChild(todoOpen);
         todo.appendChild(todoDate);
         todo.appendChild(todoInfo);
         todoList.appendChild(todo);
     }
-
-
-
-    todoButton.addEventListener("click", () =>{
-        createTodo(project);
-        
-    });
 
 
 
