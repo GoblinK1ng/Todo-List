@@ -1,5 +1,6 @@
 import { createTodoForm } from "./createForms";
 import { Todo } from "./Todo";
+import { Project } from "./Projects";
 
 const main = document.getElementById("main-content");
 
@@ -20,7 +21,7 @@ export function showProjectUI(project){
         createTodo(project);
     });
 
-    
+
     const todoList = document.createElement("ul");
 
     for (let x in project.todos){
@@ -84,7 +85,9 @@ function createTodo(project){
     form[1].addEventListener("click", () =>{
         if (form[0].checkValidity()){
             project.todos.push(new Todo(inputs[0].value, inputs[1].value, inputs[2].value, inputs[3].value));
+            localStorage.projectsList = JSON.stringify(Project.projects);
             showProjectUI(project);
+
         }
         
         

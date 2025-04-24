@@ -6,13 +6,12 @@ export class Project {
         this.description = description;
         this.todos = [];
         Project.projects.push(this);
+
+        localStorage.projectsList = JSON.stringify(Project.projects);
+
     }
 
     
-    AddItemToProject(todo){
-        
-        this.todos.push(todo);
-    }
 
     RemoveItemFromProject(todo){
         for (let x in this.todos){
