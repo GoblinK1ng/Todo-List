@@ -22,6 +22,16 @@ export class Project {
         }
         
     }
+
+    static RemoveProject(project){
+        for (let x in projects){
+            if (projects === project){
+                
+                projects.splice(x, 1);
+                localStorage.projectsList = JSON.stringify(Project.projects);
+            }
+        }
+    }
     
 }
 
