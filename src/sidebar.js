@@ -38,17 +38,7 @@ export function displaySidebar(){
         })
 
         projectEdit.addEventListener("click", ()=>{
-            const form = createProjectForm(Project.projects[x].title, Project.projects[x].description);
-            main.appendChild(form[0]);
-            form[1].addEventListener("click", () =>{
-                const inputs = document.getElementsByClassName("Input");
-                console.log(Project.projects[x]);
-                
-                Project.projects[x].EditProject(inputs[0].value, inputs[1].value);
-
-                displaySidebar();
-                main.innerHTML = "";
-            });
+            changeProjectButton(x);
         });
         projectBar.appendChild(projectDelete);
         projectBar.appendChild(projectName);
@@ -67,4 +57,18 @@ export function displaySidebar(){
         }*/
         sidebar.appendChild(projectBar);
     }
+}
+
+function changeProjectButton(x){
+    const form = createProjectForm(Project.projects[x].title, Project.projects[x].description);
+    main.appendChild(form[0]);
+    form[1].addEventListener("click", () =>{
+        const inputs = document.getElementsByClassName("Input");
+        console.log(Project.projects[x]);
+        
+        Project.EditProject(inputs[0].value, inputs[1].value, Project.projects[x]);
+
+        displaySidebar();
+        main.innerHTML = "";
+    });
 }

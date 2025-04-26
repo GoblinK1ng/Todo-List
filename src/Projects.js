@@ -12,9 +12,9 @@ export class Project {
 
     }
 
-    EditProject(title = this.title, description = this.description){
-        this.title = title;
-        this.description = description;
+    static EditProject(title = this.title, description = this.description, project){
+        project.title = title;
+        project.description = description;
         localStorage.projectsList = JSON.stringify(Project.projects);
     }
 
