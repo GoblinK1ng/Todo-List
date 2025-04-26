@@ -1,6 +1,7 @@
 import { Project } from "./Projects";
 import { createProjectForm } from "./createForms";
 import edit from "./imgs/edit.svg";
+import trash from "./imgs/trash-2.svg";
 import { showProjectUI } from "./projectUI";
 
 
@@ -15,6 +16,10 @@ export function displaySidebar(){
 
         const projectBar = document.createElement("div");
         projectBar.classList = "project-bar";
+        const projectDelete = document.createElement("input");
+        projectDelete.id = "deleteProject";
+        projectDelete.setAttribute("type", "image");
+        projectDelete.src = trash;
         const projectName = document.createElement("button");
         projectName.classList = "open-project";
         const projectEdit = document.createElement("input");
@@ -23,6 +28,11 @@ export function displaySidebar(){
         projectEdit.src = edit;
         projectName.textContent = Project.projects[x].title;
 
+        projectDelete.addEventListener("click", () =>{
+            Project.RemoveProject(Project.projects[x]);
+            main.innerHTML = "";
+        })
+        
         projectName.addEventListener("click", () =>{
             showProjectUI(Project.projects[x]);
         })
@@ -40,6 +50,7 @@ export function displaySidebar(){
                 main.innerHTML = "";
             });
         });
+        projectBar.appendChild(projectDelete);
         projectBar.appendChild(projectName);
         projectBar.appendChild(projectEdit);
         

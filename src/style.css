@@ -91,24 +91,36 @@ form{
 }
 
 .project-bar{
-  display: flex;
+  display: grid;
+  grid-template-columns: 25px 1fr 25px;
+  
+  
   align-items: center;
-  justify-content: space-between;
+  
+  
 }
 
 .open-project{
+  min-width: 0;
   border-style: none;
   background-color: transparent;
   font-size: 1.2rem;
+
+  width: 176px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  
+  margin-top: 3px;
+  text-align: left;
 }
 
 .open-project:hover, .todoOpen:hover{
   color: rgb(43, 156, 255);
   cursor: pointer;
 }
+
+
 
 #projects-section{
   display: flex;

@@ -1,3 +1,5 @@
+import { displaySidebar } from "./sidebar";
+
 export class Project {
     static projects = [];
 
@@ -29,14 +31,16 @@ export class Project {
 
     static addProjectoList(project){
         Project.projects.push(project);
+        localStorage.projectsList = JSON.stringify(Project.projects);
     }
 
     static RemoveProject(project){
-        for (let x in projects){
-            if (projects === project){
+        for (let x in Project.projects){
+            if (project === Project.projects[x]){
                 
-                projects.splice(x, 1);
+                Project.projects.splice(x, 1);
                 localStorage.projectsList = JSON.stringify(Project.projects);
+                displaySidebar();
             }
         }
     }
