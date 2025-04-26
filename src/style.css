@@ -185,12 +185,12 @@ ul{
 
 #todoInfo{
   grid-column: 2 / 4;
-  padding-left: 25px;
+  padding-left: 5px;
 
   font-size: 0.8rem;
   font-style: italic;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1.2fr;
   
   gap: 6px;
 }
@@ -208,4 +208,9 @@ ul{
 
 #todoPriority{
   justify-self: flex-end;
+  align-self: flex-end;
+}
+
+input:user-invalid{
+  border: 2px solid red;
 }
