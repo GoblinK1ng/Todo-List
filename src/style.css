@@ -177,7 +177,19 @@ ul{
 
   font-size: 0.8rem;
   font-style: italic;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  
   gap: 6px;
+}
+
+#todoDesc{
+  grid-row: 1 / 3;
+}
+
+#todoDelete{
+  grid-column: 2 / 3;
+  height: 35px;
+  width: 100px;
+  justify-self: flex-end;
 }

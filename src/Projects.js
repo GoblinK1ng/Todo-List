@@ -16,11 +16,12 @@ export class Project {
         localStorage.projectsList = JSON.stringify(Project.projects);
     }
 
-    RemoveItemFromProject(todo){
-        for (let x in this.todos){
-            if (this.todos[x] === todo){
+    static RemoveItemFromProject(todo, project){
+        for (let x in project.todos){
+            if (project.todos[x] === todo){
                 console.log(x);
-                this.todos.splice(x, 1);
+                project.todos.splice(x, 1);
+                localStorage.projectsList = JSON.stringify(Project.projects);
             }
         }
         

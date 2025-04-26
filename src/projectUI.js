@@ -42,6 +42,8 @@ export function showProjectUI(project){
 
         const todoInfo = document.createElement("div");
         todoInfo.id = "todoInfo";
+
+        
         
         todo.appendChild(todoOpen);
         todo.appendChild(todoDate);
@@ -60,12 +62,22 @@ export function showProjectUI(project){
 function showInfo(project, infoElement, x){
     if (!project.todos[x].shown){
         const todoDesc = document.createElement("p");
+        todoDesc.id = "todoDesc"
         todoDesc.textContent = project.todos[x].description;
         infoElement.appendChild(todoDesc);
 
         const todoPriority = document.createElement("p");
         todoPriority.textContent = "Priority: "+project.todos[x].priority;
         infoElement.appendChild(todoPriority);
+
+        const todoDelete = document.createElement("button");
+        todoDelete.id = "todoDelete";
+        todoDelete.textContent = "Delete Todo";
+        todoDelete.addEventListener("click", () =>{
+            Project.RemoveItemFromProject(project.todos[x], project);
+            showProjectUI(project);
+        });
+        infoElement.appendChild(todoDelete);
 
         project.todos[x].shown = true;
         
