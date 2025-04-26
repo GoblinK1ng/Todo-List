@@ -168,7 +168,7 @@ ul{
 
 .todo{
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 25px 2fr 1fr;
   grid-template-rows: 1fr ;
   align-items: center;
   
@@ -184,7 +184,7 @@ ul{
 }
 
 #todoInfo{
-  grid-column: 1 / 3;
+  grid-column: 2 / 4;
   padding-left: 25px;
 
   font-size: 0.8rem;

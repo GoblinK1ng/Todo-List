@@ -6,6 +6,7 @@ export class Todo {
         this.dueDate = dueDate;
         this.priority = priority;
         this.shown = false;
+        this.complete = false;
     }
     
 }

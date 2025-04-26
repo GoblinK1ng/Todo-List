@@ -1,6 +1,8 @@
 import { createTodoForm } from "./createForms";
 import { Todo } from "./Todo";
 import { Project } from "./Projects";
+import square from "./imgs/square.svg";
+import squareX from "./imgs/x-square.svg";
 
 const main = document.getElementById("main-content");
 
@@ -43,8 +45,17 @@ export function showProjectUI(project){
         const todoInfo = document.createElement("div");
         todoInfo.id = "todoInfo";
 
+        const todoComplete = document.createElement("input");
+        todoComplete.setAttribute("type", "image");
+        todoComplete.src = checkComplete(project.todos[x]);
+        todoComplete.id = "todoComplete";
         
+        todoComplete.addEventListener("click", () =>{
+            complete(project.todos[x], todoComplete);
+            
+        })
         
+        todo.appendChild(todoComplete);
         todo.appendChild(todoOpen);
         todo.appendChild(todoDate);
         todo.appendChild(todoInfo);
@@ -104,4 +115,17 @@ function createTodo(project){
         
         
     });
+}
+
+function complete(todo, formTodo){
+    todo.complete = !todo.complete;
+    if (todo.complete) formTodo.src = squareX;
+    else formTodo.src = square;
+    localStorage.projectsList = JSON.stringify(Project.projects);
+}
+
+function checkComplete(todo){
+    if (todo.complete) return squareX;
+    else return square;
+    
 }
