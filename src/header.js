@@ -16,12 +16,13 @@ export function projButton(){
             if (form[0].checkValidity()){
                 const inputs = document.getElementsByClassName("Input");
             
-            new Project(inputs[0].value, inputs[1].value);
-    
-            main.innerHTML = "";
-            console.log(Project.projects);
-    
-            displaySidebar();
+                const project = new Project(inputs[0].value, inputs[1].value);
+                Project.addProjectoList(project);
+        
+                main.innerHTML = "";
+                console.log(Project.projects);
+        
+                displaySidebar();
             }
             
         });

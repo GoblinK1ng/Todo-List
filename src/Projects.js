@@ -5,13 +5,16 @@ export class Project {
         this.title = title;
         this.description = description;
         this.todos = [];
-        Project.projects.push(this);
 
         localStorage.projectsList = JSON.stringify(Project.projects);
 
     }
 
-    
+    EditProject(title = this.title, description = this.description){
+        this.title = title;
+        this.description = description;
+        localStorage.projectsList = JSON.stringify(Project.projects);
+    }
 
     RemoveItemFromProject(todo){
         for (let x in this.todos){
@@ -23,6 +26,10 @@ export class Project {
         
     }
 
+    static addProjectoList(project){
+        Project.projects.push(project);
+    }
+
     static RemoveProject(project){
         for (let x in projects){
             if (projects === project){
@@ -32,6 +39,8 @@ export class Project {
             }
         }
     }
+
+    
     
 }
 

@@ -3,6 +3,8 @@ import { createProjectForm } from "./createForms";
 import edit from "./imgs/edit.svg";
 import { showProjectUI } from "./projectUI";
 
+
+
 const main = document.getElementById("main-content");
 
 export function displaySidebar(){
@@ -26,10 +28,21 @@ export function displaySidebar(){
         })
 
         projectEdit.addEventListener("click", ()=>{
-            main.appendChild(createProjectForm(Project.projects[x].title, Project.projects[x].description)[0]);
+            const form = createProjectForm(Project.projects[x].title, Project.projects[x].description);
+            main.appendChild(form[0]);
+            form[1].addEventListener("click", () =>{
+                const inputs = document.getElementsByClassName("Input");
+                console.log(Project.projects[x]);
+                
+                Project.projects[x].EditProject(inputs[0].value, inputs[1].value);
+
+                displaySidebar();
+                main.innerHTML = "";
+            });
         });
         projectBar.appendChild(projectName);
         projectBar.appendChild(projectEdit);
+        
 
         
 
