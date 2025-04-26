@@ -78,6 +78,7 @@ function showInfo(project, infoElement, x){
         infoElement.appendChild(todoDesc);
 
         const todoPriority = document.createElement("p");
+        todoPriority.id = "todoPriority";
         todoPriority.textContent = "Priority: "+project.todos[x].priority;
         infoElement.appendChild(todoPriority);
 
